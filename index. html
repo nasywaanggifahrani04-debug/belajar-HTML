@@ -28,4 +28,33 @@ belajar html
         .card p { color: #2563eb; font-size: 24px; font-weight: bold; }
         .table-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { padding: 12px; text-align: left;
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f8fafc; color: #475569; }
+        .status { padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .status.baru { background: #fef9c3; color: #a16207; }
+        .status.kirim { background: #dcfce7; color: #15803d; }
+        .footer { text-align: center; padding: 20px; color: #64748b; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Tech Mart - Dashboard Penjual</h1>
+        <p>Halo, Admin 👋</p>
+    </div>
+
+    <div class="container">
+        <div class="stats">
+            <div class="card">
+                <h3>Total Penjualan Bulan Ini</h3>
+                <p>Rp 12.500.000</p>
+            </div>
+            <div class="card">
+                <h3>Pesanan Baru</h3>
+                <p>24 Pesanan</p>
+            </div>
+            <div class="card">
+                <h3>Produk Terjual</h3>
+                <p>156 Produk</p>
+            </div>
+            <div class="card">
+                
