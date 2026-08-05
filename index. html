@@ -15,370 +15,92 @@ belajar html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TokoKita - E-Commerce Index</title>
+    <title>TokoKita - Belanja Mudah & Murah</title>
     <style>
-        /* Reset & General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f4f4f4; color: #333; }
+        
+        /* Header */
+        header { background: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
+        .logo { font-size: 24px; font-weight: bold; color: #ff5722; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: bold; }
 
-        body {
-            background-color: #f4f7f6;
-            color: #1a365d; /* Teks Utama: Biru Gelap agar tetap mudah dibaca */
-        }
+        /* Hero Banner */
+        .hero { background: #ff5722; color: #fff; text-align: center; padding: 60px 20px; }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; margin-bottom: 20px; }
+        .btn { background: #fff; color: #ff5722; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
 
-        h1, h2, h3, h4, a, p, span, .price, .old-price {
-            color: #0056b3; /* Dominan Teks Warna Biru */
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #ffffff;
-            padding: 15px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #004085;
-            text-decoration: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            color: #0056b3;
-        }
-
-        .search-bar {
-            display: flex;
-            flex: 1;
-            max-width: 400px;
-            margin: 0 20px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #0056b3;
-            border-radius: 4px 0 0 4px;
-            color: #0056b3;
-        }
-
-        .search-bar button {
-            background-color: #0056b3;
-            color: #ffffff;
-            border: none;
-            padding: 0 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-
-        .header-icons span {
-            margin-left: 15px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            padding: 60px 5%;
-            text-align: center;
-            border-bottom: 3px solid #0056b3;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            color: #004085;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
-
-        .cta-btn {
-            background-color: #0056b3;
-            color: #ffffff !important;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-
-        .cta-btn:hover {
-            background-color: #004085;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            margin-bottom: 50px;
-        }
-
-        section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            border-left: 5px solid #0056b3;
-            padding-left: 10px;
-        }
-
-        /* Flash Sale Timer */
-        .flash-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .timer {
-            background-color: #0056b3;
-            color: #ffffff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background-color: #ffffff;
-            border: 1px solid #bbdefb;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,86,179,0.15);
-        }
-
-        .product-img-placeholder {
-            background-color: #e3f2fd;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .product-card h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            font-size: 13px;
-            opacity: 0.7;
-            display: block;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            display: block;
-            margin: 5px 0 15px 0;
-        }
-
-        .add-to-cart {
-            background-color: transparent;
-            border: 1px solid #0056b3;
-            color: #0056b3;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            transition: 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background-color: #0056b3;
-            color: #ffffff;
-        }
-
-        /* Categories */
-        .category-list {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .category-item {
-            background-color: #ffffff;
-            border: 1px solid #bbdefb;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;
-            min-width: 120px;
-            transition: 0.3s;
-        }
-
-        .category-item:hover {
-            background-color: #0056b3;
-        }
-        .category-item:hover span {
-            color: #ffffff;
-        }
-
-        /* Value Propositions */
-        .values {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            background-color: #e3f2fd;
-            padding: 30px;
-            border-radius: 8px;
-            flex-wrap: wrap;
-        }
-
-        .value-item {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-        }
-
-        .value-item h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
+        /* Product Section */
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        .section-title { font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #ff5722; padding-bottom: 5px; display: inline-block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        
+        /* Product Card */
+        .card { background: #fff; border-radius: 5px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 150px; background: #ddd; border-radius: 5px; margin-bottom: 10px; }
+        .card h3 { font-size: 16px; margin-bottom: 5px; }
+        .card .price { color: #ff5722; font-weight: bold; margin-bottom: 10px; }
+        .card button { background: #ff5722; color: #fff; border: none; padding: 8px 15px; border-radius: 3px; cursor: pointer; width: 100%; }
 
         /* Footer */
-        footer {
-            background-color: #ffffff;
-            border-top: 3px solid #0056b3;
-            padding: 40px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        footer h4 {
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-
-        footer p, footer ul {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        footer ul {
-            list-style: none;
-        }
-
-        footer ul li a {
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        footer ul li a:hover {
-            text-decoration: underline;
-        }
+        footer { background: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <!-- 1. Header -->
     <header>
-        <a href="#" class="logo">TokoKita</a>
-        <nav>
-            <a href="#">Pria</a>
-            <a href="#">Wanita</a>
-            <a href="#">Anak</a>
-            <a href="#">Promo</a>
-        </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Cari produk di sini...">
-            <button>Cari</button>
-        </div>
-        <div class="header-icons">
-            <span>👤 Profil</span>
-            <span>🛒 (3)</span>
+        <div class="logo">TokoKita</div>
+        <div class="nav-links">
+            <a href="#">Beranda</a>
+            <a href="#">Kategori</a>
+            <a href="#">Keranjang</a>
         </div>
     </header>
 
-    <!-- 2. Hero Section -->
     <section class="hero">
-        <h1>GAYA BARU, SEMANGAT BARU!</h1>
-        <p>Dapatkan diskon hingga 50% untuk koleksi musim ini. Khusus minggu ini!</p>
-        <a href="#" class="cta-btn">Belanja Sekarang</a>
+        <h1>Diskon Spesial Hari Ini!</h1>
+        <p>Temukan produk terbaik dengan harga paling hemat di sini.</p>
+        <a href="#" class="btn">Belanja Sekarang</a>
     </section>
 
     <div class="container">
-        
-        <!-- 3. Flash Sale -->
-        <section>
-            <div class="flash-header">
-                <h2>⚡ FLASH SALE HARI INI</h2>
-                <div class="timer">02 : 14 : 45</div>
+        <h2 class="section-title">Produk Terlaris</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="" alt="Produk">
+                <h3>Sepatu Olahraga</h3>
+                <div class="price">Rp 250.000</div>
+                <button>Beli</button>
             </div>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-img-placeholder">[ Foto Sepatu ]</div>
-                    <h3>Sepatu Running Alpha</h3>
-                    <span class="old-price">Rp 800.000</span>
-                    <span class="price">Rp 399.000</span>
-                    <button class="add-to-cart">🛒 + Keranjang</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-img-placeholder">[ Foto Jam ]</div>
-                    <h3>Jam Tangan Minimalis</h3>
-                    <span class="old-price">Rp 1.200.000</span>
-                    <span class="price">Rp 599.000</span>
-                    <button class="add-to-cart">🛒 + Keranjang</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-img-placeholder">[ Foto Jaket ]</div>
-                    <h3>Jaket Denim Keren</h3>
-                    <span class="old-price">Rp 500.000</span>
-                    <span class="price">Rp 249.000</span>
-                    <button class="add-to-cart">🛒 + Keranjang</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-img-placeholder">[ Foto Tas ]</div>
-                    <h3>Tas Ransel Waterproof</h3>
-                    <span class="old-price">Rp 450.000</span>
-                    <span class="price">Rp 199.000</span>
-                    <button class="add-to-cart">🛒 + Keranjang</button>
-                </div>
+            <div class="card">
+                <img src="" alt="Produk">
+                <h3>Tas Ransel Pria</h3>
+                <div class="price">Rp 150.000</div>
+                <button>Beli</button>
             </div>
-        </section>
+            <div class="card">
+                <img src="" alt="Produk">
+                <h3>Jam Tangan Kasual</h3>
+                <div class="price">Rp 300.000</div>
+                <button>Beli</button>
+            </div>
+            <div class="card">
+                <img src="" alt="Produk">
+                <h3>Kaos Polos Katun</h3>
+                <div class="price">Rp 75.000</div>
+                <button>Beli</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TokoKita. Hak cipta dilindungi.</p>
+    </footer>
+
+</body>
+</html>
 
 
                 
