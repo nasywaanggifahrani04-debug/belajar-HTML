@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetStore Pro</title>
+    <style>
+        /* Reset & Base Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Header Utama */
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* Layout Utama Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section Cards */
+        .card-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e1e8ed;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1e3c72;
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 10px;
+        }
+
+        /* 1. Panel Admin Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 90px;
+        }
+
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+
+        /* 2. Panel Pembeli Styles (Grid Responsif) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-card video {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            display: block;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: background 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GadgetStore Management System</h1>
+    </header>
+
+    <div class="container">
+
+        <section class="card-section">
+            <h2 class="section-title">Panel Administrator (Manajemen Produk & Media)</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nama-produk">Nama Produk</label>
+                    <input type="text" id="nama-produk" name="nama-produk" placeholder="Contoh: Smartphone Premium X" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="deskripsi-harga">Deskripsi & Harga Produk</label>
+                    <textarea id="deskripsi-harga" name="deskripsi-harga" placeholder="Tuliskan spesifikasi produk dan harga (misal: Rp 12.000.000)..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="url-gambar">URL Gambar Produk (Image Source)</label>
+                    <input type="text" id="url-gambar" name="url-gambar" placeholder="https://example.com/gambar.jpg" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Simpan Produk ke Database</button>
+            </form>
+        </section>
+
+        <section class="card-section">
+            <h2 class="section-title">Panel Pembeli (Katalog & Transaksi)</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="Smartphone Premium">
+                    <div class="product-details">
+                        <div class="product-title">Smartphone Premium Z</div>
+                        <div class="product-price">Rp 12.000.000</div>
+                        <p class="product-desc">
+                            Layar AMOLED 120Hz, Chipset Flagship Octa-Core, RAM 12GB, Storage 256GB, Baterai 5000mAh.
+                        </p>
+                        <video controls>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung pemutar video.
+                        </video>
+                        <a href="#checkout" class="btn-buy">Beli Sekarang</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500" alt="Laptop Ultra">
+                    <div class="product-details">
+                        <div class="product-title">Laptop Ultra Pro</div>
+                        <div class="product-price">Rp 18.500.000</div>
+                        <p class="product-desc">
+                            Layar 14" Retina Display, Processor Gen-Latest, RAM 16GB SSD 512GB, Desain Tipis Aluminium.
+                        </p>
+                        <video controls>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung pemutar video.
+                        </video>
+                        <a href="#checkout" class="btn-buy">Beli Sekarang</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
